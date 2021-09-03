@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block producto %}
+
+<div id="about" class="layout_padding about_section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div><img src="/media/{{producto.foto}}" style="max-width: 100%;"></div>
+            </div>
+            <div class="col-md-6">
+                <h1 class="about_text"><strong>{{producto.nombre}} <span class="color">!!!</span></strong></h1>
+                <p class="about_taital">{{producto.descripcion}}</p>
+                <button class="read_more"><a href="/andromeda">Ir al inicio</a></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,100 @@
+{% extends "layout.html" %}
+{% load static %}
+
+{% block banner %}
+<div id="main_slider" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+        {% for banner in listaBanner %}
+            {% if forloop.first %}  
+                <div class="carousel-item active">
+                    <div class="row ">
+                        <div class="col-md-6 taital">
+                            <h1>{{banner.titulo}}<strong class="banner_taital">{{banner.subtitulo}}</strong></h1>
+                            <p class="lorem_text">{{banner.descripcion}}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="banner-image"><img src="/media/{{banner.foto}}" style="max-width: 100%;"></div>
+                        </div>
+                        <div class="banner_bt">
+                            <button class="bt_main"><a href="#">Ver productos</a></button>
+                        </div>
+                    </div>
+                </div>
+            {% else %}  
+                <div class="carousel-item">
+                    <div class="row ">
+                        <div class="col-md-6 taital">
+                            <h1>{{banner.titulo}}<strong class="banner_taital">{{banner.subtitulo}}</strong></h1>
+                            <p class="lorem_text">{{banner.descripcion}}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="banner-image"><img src="/media/{{banner.foto}}" style="max-width: 100%;"></div>
+                        </div>
+                        <div class="banner_bt">
+                            <button class="bt_main"><a href="#">Ver productos</a></button>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+    <a class="carousel-control-prev" href="#main_slider" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"><i class="fa fa-angle-left"></i></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#main_slider" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"><i class="fa fa-angle-right"></i></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+{% endblock %}
+
+{% block productos %}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <h1 class="product_text"><strong><span class="den">Nuestros </span>Productos</strong></h1>
+        </div>
+    </div>
+    <div class="product_section_2 images">
+        <div class="row">
+            {% for producto in listaProducto %}
+            <div class="col-sm-4">
+                <div class="images"><img src="/media/{{producto.foto}}"
+                        style="max-width: 100%; width: 100%;"></div>
+                <h2 class="den_text croissants"><a href="producto/{{ producto.id }}">{{producto.nombre}}</a></h2>
+            </div>          
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}}
+
+
+{% block galeria %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="gallery_main">
+                    <h1 class="gallery_taital"><strong><span class="our_text">Nuestra</span> Galeria</strong></h1>
+                </div>
+            </div>
+            <div class="col-sm-12 gallery_maain">
+                <div class="row">
+                    {% for galeria in listaGaleria %}
+                        <div class="col-sm-3 padding_0">
+                            <div class="gallery_blog">
+                                <img class="img-responive" src="/media/{{galeria.foto}}">
+                                <div class="overlay">
+                                    <h2>{{galeria.nombre}}</h2>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
